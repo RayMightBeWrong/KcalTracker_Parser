@@ -7,8 +7,6 @@ banana = (40, 10, 5, 4)
 
 import ply.lex as lex
 
-#states = [('COMMENT', 'exclusive')]
-
 literals = ['=', '(', ')', '-', '>', '/', '[', ']', '?', ',', '*']
 tokens = ['ID', 'NUM', 'DIA', 'COMMENT']
 
