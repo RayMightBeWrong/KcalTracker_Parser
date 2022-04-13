@@ -2,13 +2,15 @@
 banana = (40, 10, 5, 4)
 12/5/2022 -> [banana, arroz]
 ?12/5/2022
-?[banana, arroz]
+?[banana, arroz] #comment
 '''
 
 import ply.lex as lex
 
+#states = [('COMMENT', 'exclusive')]
+
 literals = ['=', '(', ')', '-', '>', '/', '[', ']', '?', ',', '*']
-tokens = ['ID', 'NUM', 'DIA']
+tokens = ['ID', 'NUM', 'DIA', 'COMMENT']
 
 t_ID = r'[A-Za-z][A-Za-z_]*'
 
@@ -20,6 +22,10 @@ def t_NUM(t):
     r'\d+(.\d+)?'
     t.value = float(t.value)
     return t
+
+def t_COMMENT(t):
+    r'\#.*'
+    pass
 
 t_ignore = " \t\n"
 
